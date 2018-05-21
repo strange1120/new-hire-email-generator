@@ -14,16 +14,10 @@ public class Email {
 	public Email(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
-	
 		this.department = setDepartment();
-		System.out.println("Department: " + this.department);
-		
 		this.password = randomPassword(defaultPasswordLength);
-		System.out.println("Your password is: " + this.password);
 		
 		email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
-		System.out.println("Your email is: " + this.email);
 	}
 	
 	private String randomPassword(int length) {
@@ -38,7 +32,7 @@ public class Email {
 	}
 	
 	private String setDepartment() {
-		System.out.println("DEPARTMENT CODES\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter department code");
+		System.out.println("New Worker: " + firstName + ". Department Codes: \n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter department code");
 		Scanner in = new Scanner(System.in);
 		int depChoice = in.nextInt();
 		if (depChoice == 1) {
@@ -64,7 +58,47 @@ public class Email {
 	public void changePassword(String password) {
 		this.password = password;
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public int getMailboxCapacity() {
+		return mailboxCapacity;
+	}
+
+	public int getDefaultPasswordLength() {
+		return defaultPasswordLength;
+	}
+
+	public String getAlternateEmail() {
+		return alternateEmail;
+	}
+
+	public String getCompanySuffix() {
+		return companySuffix;
+	}
 	
+	public String showInfo() {
+		return "DISPLAY NAME: " + firstName + " " + lastName +
+				"\nCOMPANY EMAIL: " + email + "\nMAILBOX CAPACIY: " + mailboxCapacity + "mb";
+	}
 	
 	
 	
