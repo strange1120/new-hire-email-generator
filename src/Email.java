@@ -5,9 +5,11 @@ public class Email {
 	private String lastName;
 	private String password;
 	private String department;
-	private int mailboxCapacity;
+	private String email;
+	private int mailboxCapacity = 500;
 	private int defaultPasswordLength = 10;
 	private String alternateEmail;
+	private String companySuffix = "company.com";
 	
 	public Email(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -20,6 +22,8 @@ public class Email {
 		this.password = randomPassword(defaultPasswordLength);
 		System.out.println("Your password is: " + this.password);
 		
+		email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
+		System.out.println("Your email is: " + this.email);
 	}
 	
 	private String randomPassword(int length) {
@@ -49,8 +53,17 @@ public class Email {
 	
 	}
 	
+	public void setMailBoxCapacity(int capacity) {
+		this.mailboxCapacity = capacity;
+	}
 	
+	public void setAlternateEmail(String altEmail) {
+		this.alternateEmail = altEmail;
+	}
 	
+	public void changePassword(String password) {
+		this.password = password;
+	}
 	
 	
 	
